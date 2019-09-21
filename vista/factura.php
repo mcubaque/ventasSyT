@@ -113,7 +113,7 @@ $acciones = isset($_GET['acciones']) ? $_GET['acciones'] : "";
 $prodmarca = isset($_GET['nom_prod']) ? $_GET['nom_prod'] : "";
 $cantidad = isset($_GET['cantidad']) ? $_GET['cantidad'] : "0";
 $subtotal = isset($_GET['subtotal']) ? $_GET['subtotal'] : "0";
-$prodid = isset($_GET['id_producto']) ? $_GET['id_producto'] : "0";
+$id_producto = isset($_GET['id_producto']) ? $_GET['id_producto'] : "0";
  
 // display a message
 if($acciones=='removed'){
