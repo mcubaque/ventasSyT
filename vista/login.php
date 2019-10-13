@@ -40,7 +40,7 @@ form div label{
 <div class="container py-5">
   <div class="display-content-center">
 
-     <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-bottom">
+     <nav class="navbar navbar-expand-lg navbar-dark bg-danger fixed-top">
       <div class="container ">
         <a class="navbar-brand " href="#">SyT Ventas</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
