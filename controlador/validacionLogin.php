@@ -30,7 +30,7 @@ if ($admin>0)  //quiere decir que los datos estan bien
 	$_SESSION['tipo_usuario']=$usuario->tipo_usuario;
 
 	if($_SESSION['tipo_usuario']=="Administrador")
-		header("location:../vista/dashboard.php");
+		header("location:../vista/dashboard.html");
 	if($_SESSION['tipo_usuario']=="Vendedor")
 		header("location:../vista/ventas.php");
 }
