@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-12-2019 a las 22:34:04
+-- Tiempo de generación: 15-12-2019 a las 23:20:28
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.2.0
 
@@ -106,20 +106,21 @@ CREATE TABLE `productos` (
   `nom_prod` varchar(30) NOT NULL,
   `precio` int(10) NOT NULL,
   `stock` int(10) NOT NULL,
-  `id_categoria` int(10) NOT NULL
+  `id_categoria` int(10) NOT NULL,
+  `imagen` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id_producto`, `nom_prod`, `precio`, `stock`, `id_categoria`) VALUES
-(123456, 'Xiaomi A1', 620000, 10, 1),
-(123457, 'Xiaomi Redmi 7', 720000, 10, 1),
-(123458, 'Samsung Galaxy Note 10', 4400000, 3, 2),
-(123459, 'Iphone 6 Plus', 1500000, 5, 3),
-(123460, 'Alcatel A3 Plus', 340000, 10, 1),
-(123461, 'LG K10', 890000, 5, 2);
+INSERT INTO `productos` (`id_producto`, `nom_prod`, `precio`, `stock`, `id_categoria`, `imagen`) VALUES
+(123456, 'Xiaomi A1', 620000, 10, 1, ''),
+(123457, 'Xiaomi Redmi 7', 720000, 10, 1, ''),
+(123458, 'Samsung Galaxy Note 10', 4400000, 3, 2, ''),
+(123459, 'Iphone 6 Plus', 1500000, 5, 3, ''),
+(123460, 'Alcatel A3 Plus', 340000, 10, 1, ''),
+(123461, 'LG K10', 890000, 5, 2, '');
 
 -- --------------------------------------------------------
 
@@ -160,6 +161,31 @@ CREATE TABLE `vendedor` (
 
 INSERT INTO `vendedor` (`id_vendedor`, `nombres`, `apellidos`) VALUES
 (80831121, 'Marco Antonio', 'Cubaque');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ventas`
+--
+
+CREATE TABLE `ventas` (
+  `id_venta` int(11) NOT NULL,
+  `id_clientes` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `subtotal` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `fecha_venta` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `ventas`
+--
+
+INSERT INTO `ventas` (`id_venta`, `id_clientes`, `id_producto`, `cantidad`, `subtotal`, `total`, `fecha_venta`) VALUES
+(1, 0, 0, 0, 0, 0, '2019-12-15 21:32:29'),
+(2, 80831121, 123458, 1, 4400000, 4400000, '2019-12-15 21:33:52'),
+(3, 80831121, 123457, 1, 720000, 1340000, '2019-12-15 21:52:40');
 
 --
 -- Índices para tablas volcadas
@@ -213,6 +239,12 @@ ALTER TABLE `vendedor`
   ADD PRIMARY KEY (`id_vendedor`);
 
 --
+-- Indices de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD PRIMARY KEY (`id_venta`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -220,13 +252,19 @@ ALTER TABLE `vendedor`
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas

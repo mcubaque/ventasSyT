@@ -8,7 +8,7 @@ $total = isset($_POST['total']) ? $_POST['total'] : "";
 
 
 include "../modelo/conexion.php";
-$sentencia = "INSERT INTO ventas (id_cliente, id_producto, cantidad, subtotal, total) VALUES ('".$id_cliente."', '".$id_producto."', '".$cantidad."', '".$subtotal."', '".$total."')";
+$sentencia = "INSERT INTO ventas (id_clientes, id_producto, cantidad, subtotal, total) VALUES ('".$id_cliente."', '".$id_producto."', '".$cantidad."', '".$subtotal."', '".$total."')";
 	Conectarse()->query($sentencia) or die("Error al ingresar los datos");
 
 ?>

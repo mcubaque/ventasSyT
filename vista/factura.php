@@ -22,7 +22,9 @@ include '../modelo/conexion.php';
 </head>
 <body>
     
-    
+    <div class="text-left">
+                <a href='listarVentas.php'> <button type='button' class='btn btn-danger'>Listar Ventas</button></a> 
+            </div>
     <div class="container text-center">
     <form class="form-horizontal" role="form" method="POST" action="factura.php">
         <div class="row">
